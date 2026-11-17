@@ -1,0 +1,16 @@
+{
+  "name": "line-card-bot",
+  "version": "1.0.0",
+  "description": "LINE 官方帳號：圖文選單 + 多圖卡片自動回覆機器人",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "DRY_RUN=1 node src/server.js",
+    "richmenu": "node scripts/setup-richmenu.js",
+    "richmenu:image": "node scripts/make-richmenu-image.js",
+    "test": "node scripts/selftest.js"
+  },
+  "license": "MIT"
+}

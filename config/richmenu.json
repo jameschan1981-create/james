@@ -1,0 +1,13 @@
+{
+  "_說明": "圖文選單 (畫面下方的大按鈕)。固定 3x2 共 6 格，順序：左上→右上，左下→右下。menu 填 cards.json 裡的 id；或改用 url 開網頁。改完執行 npm run richmenu:image 重新產生圖片，再 npm run richmenu 上傳。",
+  "name": "main-menu",
+  "chatBarText": "點我看選單",
+  "buttons": [
+    { "label": "熱門商品", "icon": "🛍️", "menu": "products" },
+    { "label": "最新優惠", "icon": "🎁", "menu": "promo" },
+    { "label": "價目表",   "icon": "💰", "menu": "price" },
+    { "label": "門市資訊", "icon": "📍", "menu": "store" },
+    { "label": "常見問題", "icon": "❓", "menu": "faq" },
+    { "label": "聯絡客服", "icon": "💬", "menu": "contact" }
+  ]
+}

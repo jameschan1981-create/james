@@ -1,0 +1,164 @@
+{
+  "_說明": "這個檔案控制所有自動回覆。每個 menu 是一組『多圖卡片』(左右滑動的輪播)。客人點圖文選單按鈕、或打出 keywords 裡的任一字，就會回覆該組卡片。圖片必須是 https 網址，建議 800x520 (比例 20:13)。每組最多 12 張卡片、每張最多 3 個按鈕。",
+
+  "welcome": {
+    "text": "歡迎加入！👋\n點下方選單，或直接輸入「商品」「優惠」「價格」「地址」「客服」，我會馬上回覆您 😊",
+    "showMenu": "products"
+  },
+
+  "fallback": {
+    "text": "不好意思，我還看不懂這個問題 🙏\n您可以點下方選單，或輸入：商品／優惠／價格／地址／問題／客服",
+    "quickReplies": ["商品", "優惠", "價格", "地址", "客服"]
+  },
+
+  "menus": [
+    {
+      "id": "products",
+      "keywords": ["商品", "產品", "熱門", "推薦", "買", "product"],
+      "altText": "熱門商品推薦",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/prod1/800/520",
+          "title": "招牌商品 A",
+          "description": "本店人氣第一名，回購率超高！",
+          "price": "NT$ 390",
+          "buttons": [
+            { "label": "立即購買", "type": "uri", "value": "https://example.com/product-a" },
+            { "label": "看更多", "type": "message", "value": "價格" }
+          ]
+        },
+        {
+          "image": "https://picsum.photos/seed/prod2/800/520",
+          "title": "人氣商品 B",
+          "description": "限量供應，賣完就沒了。",
+          "price": "NT$ 520",
+          "buttons": [
+            { "label": "立即購買", "type": "uri", "value": "https://example.com/product-b" }
+          ]
+        },
+        {
+          "image": "https://picsum.photos/seed/prod3/800/520",
+          "title": "新品 C",
+          "description": "本月新上市，搶先體驗。",
+          "price": "NT$ 680",
+          "buttons": [
+            { "label": "立即購買", "type": "uri", "value": "https://example.com/product-c" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "promo",
+      "keywords": ["優惠", "活動", "折扣", "特價", "promo"],
+      "altText": "最新優惠活動",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/promo1/800/520",
+          "title": "加入好友送 100 元",
+          "description": "首次消費滿 500 元，出示此訊息即可折抵。",
+          "buttons": [
+            { "label": "馬上使用", "type": "uri", "value": "https://example.com/coupon" }
+          ]
+        },
+        {
+          "image": "https://picsum.photos/seed/promo2/800/520",
+          "title": "買二送一",
+          "description": "指定商品任選 3 件，最低價免費。",
+          "buttons": [
+            { "label": "看指定商品", "type": "message", "value": "商品" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "price",
+      "keywords": ["價格", "價錢", "價目", "多少錢", "費用", "price"],
+      "altText": "價目表",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/price1/800/520",
+          "title": "基本方案",
+          "description": "適合第一次體驗的客人。",
+          "price": "NT$ 299 起",
+          "buttons": [{ "label": "我要預約", "type": "message", "value": "客服" }]
+        },
+        {
+          "image": "https://picsum.photos/seed/price2/800/520",
+          "title": "進階方案",
+          "description": "最多人選擇，CP 值最高。",
+          "price": "NT$ 599 起",
+          "buttons": [{ "label": "我要預約", "type": "message", "value": "客服" }]
+        },
+        {
+          "image": "https://picsum.photos/seed/price3/800/520",
+          "title": "尊榮方案",
+          "description": "全套服務，專人一對一。",
+          "price": "NT$ 999 起",
+          "buttons": [{ "label": "我要預約", "type": "message", "value": "客服" }]
+        }
+      ]
+    },
+    {
+      "id": "store",
+      "keywords": ["地址", "門市", "位置", "怎麼去", "營業時間", "幾點", "store"],
+      "altText": "門市資訊",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/store1/800/520",
+          "title": "台北旗艦店",
+          "description": "📍 台北市信義區範例路 1 號\n🕙 每日 10:00 – 21:00",
+          "buttons": [
+            { "label": "Google 地圖導航", "type": "uri", "value": "https://maps.google.com/?q=台北101" },
+            { "label": "打電話", "type": "uri", "value": "tel:0212345678" }
+          ]
+        },
+        {
+          "image": "https://picsum.photos/seed/store2/800/520",
+          "title": "台中門市",
+          "description": "📍 台中市西屯區範例路 2 號\n🕙 每日 11:00 – 21:00",
+          "buttons": [
+            { "label": "Google 地圖導航", "type": "uri", "value": "https://maps.google.com/?q=台中歌劇院" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "keywords": ["問題", "常見", "faq", "退貨", "運費", "付款"],
+      "altText": "常見問題",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/faq1/800/520",
+          "title": "運費怎麼算？",
+          "description": "單筆滿 NT$1,000 免運，未滿酌收 NT$80。"
+        },
+        {
+          "image": "https://picsum.photos/seed/faq2/800/520",
+          "title": "可以退換貨嗎？",
+          "description": "收到商品 7 天內，未拆封可無條件退換。"
+        },
+        {
+          "image": "https://picsum.photos/seed/faq3/800/520",
+          "title": "有哪些付款方式？",
+          "description": "信用卡、LINE Pay、ATM 轉帳、貨到付款。"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "keywords": ["客服", "真人", "聯絡", "電話", "預約", "contact"],
+      "altText": "聯絡客服",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/contact1/800/520",
+          "title": "聯絡真人客服",
+          "description": "客服時間：週一至週五 09:00 – 18:00\n直接在這裡留言，我們會盡快回覆您！",
+          "buttons": [
+            { "label": "撥打電話", "type": "uri", "value": "tel:0212345678" },
+            { "label": "線上預約", "type": "uri", "value": "https://example.com/booking" }
+          ]
+        }
+      ]
+    }
+  ]
+}
