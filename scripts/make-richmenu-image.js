@@ -1,6 +1,6 @@
-// 依照 config/richmenu.json 自動產生圖文選單圖片 assets/richmenu.png (2500x1686)
+// 依照 config/richmenu.json 自動產生圖文選單圖片 assets/richmenu.jpg (2500x1686)
 // 需要 Playwright：npm i -D playwright && npx playwright install chromium
-// 也可以不用這支，直接用 Canva 做一張 2500x1686 的圖，存成 assets/richmenu.png
+// 也可以不用這支，直接用 Canva 做一張 2500x1686 的圖，存成 assets/richmenu.jpg
 const fs = require('fs');
 const path = require('path');
 
@@ -32,9 +32,17 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   }
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 2500, height: 1686 } });
-  await page.setContent(html, { waitUntil: 'networkidle' });
-  const out = path.join(root, 'assets', 'richmenu.png');
-  await page.screenshot({ path: out, type: 'png' });
+  // 有自訂設計稿 assets/richmenu-design.html 就用它，否則用 richmenu.json 自動排版
+  const design = path.join(root, 'assets', 'richmenu-design.html');
+  if (fs.existsSync(design)) {
+    await page.goto('file://' + design, { waitUntil: 'networkidle' });
+    await page.evaluate(() => document.fonts.ready);
+  } else {
+    await page.setContent(html, { waitUntil: 'networkidle' });
+  }
+  const out = path.join(root, 'assets', 'richmenu.jpg'); // 用 jpg，LINE 限制 1MB
+  await page.screenshot({ path: out, type: 'jpeg', quality: 90 });
+  fs.rmSync(path.join(root, 'assets', 'richmenu.png'), { force: true });
   await browser.close();
   const kb = Math.round(fs.statSync(out).size / 1024);
   console.log(`已產生 ${out} (${kb} KB)${kb > 1024 ? '  ⚠️ 超過 1MB，請壓縮或改存 jpg' : ''}`);

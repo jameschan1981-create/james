@@ -1,0 +1,176 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- KM 包材職人 圖文選單設計稿 (2500x1686)。改字直接改這裡，再執行 npm run richmenu:image -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700;900&display=block" rel="stylesheet">
+<style>
+  :root { --y:#FFD60A; --n:#1B2A5C; --k:#E3B26B; --bg:#FFF9E6; }
+  * { margin:0; box-sizing:border-box; }
+  body { width:2500px; height:1686px; overflow:hidden; background:var(--bg);
+         font-family:"Noto Sans TC",sans-serif; color:var(--n); position:relative; }
+
+  /* ---------- 左邊大格：問詹哥 ---------- */
+  .left { position:absolute; left:0; top:0; width:1000px; height:1686px; background:var(--y);
+          overflow:hidden; border-right:14px solid var(--n); }
+  .rays { position:absolute; inset:0; }
+  .brand { position:absolute; top:56px; left:0; right:0; display:flex; justify-content:center; align-items:center; gap:22px;
+           font-weight:900; font-size:76px; letter-spacing:4px; }
+  .brand b { font-family:Arial Black,Arial,sans-serif; font-size:84px; letter-spacing:0; }
+  .title { position:absolute; top:170px; left:0; right:0; text-align:center; font-weight:900; line-height:1.05; }
+  .title .s { font-size:118px; }
+  .title .l { font-size:200px; color:var(--n);
+              -webkit-text-stroke:0; text-shadow: 8px 8px 0 #fff, -4px -4px 0 #fff, 4px -4px 0 #fff, -4px 4px 0 #fff; }
+  .photo { position:absolute; left:110px; top:610px; width:780px; height:800px; border-radius:56px; overflow:hidden;
+           border:16px solid var(--n); background:#fff; box-shadow:18px 18px 0 var(--n); }
+  .photo img { width:100%; height:100%; object-fit:cover; object-position:50% 20%; display:block; }
+  .pill { position:absolute; left:70px; right:70px; bottom:70px; height:150px; background:var(--n); color:#fff;
+          border-radius:90px; display:flex; align-items:center; justify-content:center; gap:20px;
+          font-weight:900; font-size:66px; letter-spacing:2px; }
+  .pill span { color:var(--y); }
+
+  /* ---------- 右邊 6 格 ---------- */
+  .grid { position:absolute; left:1000px; top:0; width:1500px; height:1686px;
+          display:grid; grid-template-columns:repeat(3,500px); grid-template-rows:repeat(2,843px); }
+  .cell { position:relative; padding:34px 30px 50px; }
+  .card { position:relative; height:100%; background:#fff; border:12px solid var(--n); border-radius:48px;
+          box-shadow:0 16px 0 var(--n); display:flex; flex-direction:column; align-items:center; overflow:hidden; }
+  .card .ic { width:330px; height:330px; margin-top:56px; }
+  .card h3 { font-weight:900; font-size:112px; letter-spacing:6px; margin-top:12px; line-height:1.1; white-space:nowrap; }
+  .card h3.long { font-size:76px; letter-spacing:0; margin-top:32px; }
+  .card .sub { margin-top:auto; margin-bottom:46px; position:relative; font-weight:900; font-size:54px; padding:8px 30px;
+               white-space:nowrap; }
+  .card .sub::before { content:""; position:absolute; inset:0; background:var(--y); z-index:-1;
+          clip-path:polygon(2% 12%,10% 4%,30% 9%,55% 2%,80% 8%,98% 3%,96% 40%,100% 70%,94% 96%,70% 90%,45% 98%,20% 92%,4% 97%,0% 60%); }
+  .card .sub { z-index:0; }
+  .tag { position:absolute; top:22px; right:22px; width:96px; height:96px; border-radius:50%; background:var(--n); color:var(--y);
+         display:flex; align-items:center; justify-content:center; font-weight:900; font-size:54px; }
+</style></head>
+<body>
+
+<div class="left">
+  <svg class="rays" viewBox="0 0 1000 1686" aria-hidden="true">
+    <g fill="#fff" opacity=".45">
+      <polygon points="500,1000 -200,200 -200,420"/>
+      <polygon points="500,1000 -200,760 -200,960"/>
+      <polygon points="500,1000 1200,200 1200,420"/>
+      <polygon points="500,1000 1200,760 1200,960"/>
+      <polygon points="500,1000 120,-100 330,-100"/>
+      <polygon points="500,1000 670,-100 880,-100"/>
+    </g>
+    <!-- 漫畫衝擊線 -->
+    <g stroke="#1B2A5C" stroke-width="22" stroke-linecap="round">
+      <line x1="70" y1="190" x2="140" y2="250"/><line x1="40" y1="330" x2="125" y2="345"/>
+      <line x1="930" y1="190" x2="860" y2="250"/><line x1="960" y1="330" x2="875" y2="345"/>
+    </g>
+  </svg>
+
+  <div class="brand">
+    <svg width="96" height="80" viewBox="0 0 120 100" aria-hidden="true">
+      <polygon points="60,6 112,30 60,54 8,30" fill="#fff" stroke="#1B2A5C" stroke-width="9" stroke-linejoin="round"/>
+      <polygon points="8,30 60,54 60,96 8,72" fill="#1B2A5C" stroke="#1B2A5C" stroke-width="9" stroke-linejoin="round"/>
+      <polygon points="60,54 112,30 112,72 60,96" fill="#fff" stroke="#1B2A5C" stroke-width="9" stroke-linejoin="round"/>
+    </svg>
+    <span><b>KM</b> 包材職人</span>
+  </div>
+
+  <div class="title">
+    <div class="s">包材有問題？</div>
+    <div class="l">問詹哥！</div>
+  </div>
+
+  <div class="photo"><img src="richmenu-character.jpg" alt=""></div>
+
+  <div class="pill">尺寸・報價・印刷<span>免費問</span></div>
+</div>
+
+<div class="grid">
+  <!-- 1 紙箱 -->
+  <div class="cell"><div class="card"><div class="tag">1</div>
+    <svg class="ic" viewBox="0 0 200 200" aria-hidden="true">
+      <g stroke="#1B2A5C" stroke-width="8" stroke-linejoin="round">
+        <polygon points="100,38 172,72 100,106 28,72" fill="#F0C987"/>
+        <polygon points="28,72 100,106 100,182 28,148" fill="#D9A35A"/>
+        <polygon points="100,106 172,72 172,148 100,182" fill="#C98F45"/>
+        <polygon points="64,55 136,89 136,106 64,72" fill="#FFD60A" stroke-width="0"/>
+        <line x1="64" y1="55" x2="136" y2="89"/>
+      </g>
+    </svg>
+    <h3>紙箱</h3><div class="sub">各種尺寸</div></div></div>
+
+  <!-- 2 氣泡布 -->
+  <div class="cell"><div class="card"><div class="tag">2</div>
+    <svg class="ic" viewBox="0 0 200 200" aria-hidden="true">
+      <g stroke="#1B2A5C" stroke-width="8" stroke-linejoin="round">
+        <rect x="50" y="30" width="110" height="140" rx="18" fill="#EAF4FF"/>
+        <ellipse cx="50" cy="100" rx="26" ry="70" fill="#D6E9FF"/>
+        <ellipse cx="50" cy="100" rx="10" ry="28" fill="#fff"/>
+      </g>
+      <g fill="#fff" stroke="#1B2A5C" stroke-width="5">
+        <circle cx="92" cy="60" r="11"/><circle cx="128" cy="60" r="11"/>
+        <circle cx="92" cy="100" r="11"/><circle cx="128" cy="100" r="11"/>
+        <circle cx="92" cy="140" r="11"/><circle cx="128" cy="140" r="11"/>
+      </g>
+    </svg>
+    <h3>氣泡布</h3><div class="sub">緩衝防撞</div></div></div>
+
+  <!-- 3 包裝袋 -->
+  <div class="cell"><div class="card"><div class="tag">3</div>
+    <svg class="ic" viewBox="0 0 200 200" aria-hidden="true">
+      <g stroke="#1B2A5C" stroke-width="8" stroke-linejoin="round">
+        <rect x="22" y="58" width="80" height="110" rx="8" fill="#EEF5FA" transform="rotate(-10 62 113)"/>
+        <line x1="26" y1="78" x2="102" y2="64" stroke-width="6"/>
+        <rect x="78" y="34" width="100" height="136" rx="10" fill="#fff"/>
+        <rect x="78" y="34" width="100" height="28" rx="10" fill="#1B2A5C"/>
+      </g>
+      <g transform="translate(108 92)" stroke="#1B2A5C" stroke-width="5" stroke-linejoin="round">
+        <polygon points="20,2 38,10 20,18 2,10" fill="#fff"/>
+        <polygon points="2,10 20,18 20,34 2,26" fill="#1B2A5C"/>
+        <polygon points="20,18 38,10 38,26 20,34" fill="#fff"/>
+      </g>
+      <text x="128" y="152" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="26" fill="#1B2A5C">KM</text>
+    </svg>
+    <h3>包裝袋</h3><div class="sub">快遞・夾鏈袋</div></div></div>
+
+  <!-- 4 膠帶 -->
+  <div class="cell"><div class="card"><div class="tag">4</div>
+    <svg class="ic" viewBox="0 0 200 200" aria-hidden="true">
+      <g stroke="#1B2A5C" stroke-width="8" stroke-linejoin="round">
+        <path d="M96 128 H188 L180 140 L188 152 L180 164 H96 Z" fill="#F2D48A"/>
+        <circle cx="90" cy="96" r="70" fill="#F2D48A"/>
+        <circle cx="90" cy="96" r="32" fill="#fff"/>
+      </g>
+      <circle cx="90" cy="96" r="51" fill="none" stroke="#E0B85C" stroke-width="6"/>
+      <text x="90" y="62" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="17" fill="#1B2A5C">KM</text>
+    </svg>
+    <h3>膠帶</h3><div class="sub">封箱必備</div></div></div>
+
+  <!-- 5 尺寸怎麼挑 -->
+  <div class="cell"><div class="card"><div class="tag">5</div>
+    <svg class="ic" viewBox="0 0 200 200" aria-hidden="true">
+      <g stroke="#1B2A5C" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+        <polygon points="100,30 160,58 100,86 40,58" fill="#F0C987"/>
+        <polygon points="40,58 100,86 100,128 40,100" fill="#D9A35A"/>
+        <polygon points="100,86 160,58 160,100 100,128" fill="#C98F45"/>
+        <rect x="18" y="140" width="164" height="42" rx="6" fill="#FFD60A"/>
+        <line x1="44" y1="140" x2="44" y2="162" stroke-width="6"/><line x1="72" y1="140" x2="72" y2="156" stroke-width="6"/>
+        <line x1="100" y1="140" x2="100" y2="162" stroke-width="6"/><line x1="128" y1="140" x2="128" y2="156" stroke-width="6"/>
+        <line x1="156" y1="140" x2="156" y2="162" stroke-width="6"/>
+      </g>
+    </svg>
+    <h3 class="long">尺寸怎麼挑</h3><div class="sub">3 步選對箱</div></div></div>
+
+  <!-- 6 印刷怎麼問 -->
+  <div class="cell"><div class="card"><div class="tag">6</div>
+    <svg class="ic" viewBox="0 0 200 200" aria-hidden="true">
+      <g stroke="#1B2A5C" stroke-width="8" stroke-linejoin="round">
+        <rect x="58" y="22" width="84" height="50" fill="#fff"/>
+        <rect x="24" y="66" width="152" height="68" rx="14" fill="#1B2A5C"/>
+        <rect x="52" y="110" width="96" height="74" fill="#fff"/>
+      </g>
+      <circle cx="152" cy="88" r="7" fill="#FFD60A"/>
+      <rect x="66" y="126" width="68" height="40" rx="6" fill="#FFD60A"/>
+      <text x="100" y="155" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="22" fill="#1B2A5C">LOGO</text>
+    </svg>
+    <h3 class="long">印刷怎麼問</h3><div class="sub">客製 LOGO</div></div></div>
+</div>
+
+</body></html>

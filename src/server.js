@@ -34,6 +34,11 @@ function messagesFor(event) {
 
   // 3. 客人打字 → 比對關鍵字
   if (event.type === 'message' && event.message.type === 'text') {
+    // 詢價/下單 → 不出卡片，交給真人
+    const t = event.message.text;
+    if (config.handoff && config.handoff.keywords.some((k) => t.includes(k))) {
+      return [{ type: 'text', text: config.handoff.text }];
+    }
     const menu = findMenuByText(config, event.message.text);
     if (menu) return [buildCarousel(menu)];
     return [{

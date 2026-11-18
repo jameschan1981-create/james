@@ -8,27 +8,27 @@ const { API, API_DATA, call } = require('../src/line');
 
 const root = path.join(__dirname, '..');
 const cfg = JSON.parse(fs.readFileSync(path.join(root, 'config', 'richmenu.json'), 'utf8'));
-const imgPath = ['richmenu.png', 'richmenu.jpg']
+const imgPath = ['richmenu.jpg', 'richmenu.png']
   .map((f) => path.join(root, 'assets', f))
   .find((p) => fs.existsSync(p));
 
 const W = 2500, H = 1686, COLS = 3, ROWS = 2;
 
 function areas() {
-  return cfg.buttons.slice(0, 6).map((b, i) => {
+  // 有寫 bounds 就用自訂區域；沒寫就自動排成 3x2 六格
+  return cfg.buttons.slice(0, 20).map((b, i) => {
     const col = i % COLS, row = Math.floor(i / COLS);
     const x = Math.round((W / COLS) * col), y = Math.round((H / ROWS) * row);
-    const width = Math.round((W / COLS) * (col + 1)) - x;
-    const height = Math.round((H / ROWS) * (row + 1)) - y;
+    const auto = { x, y, width: Math.round((W / COLS) * (col + 1)) - x, height: Math.round((H / ROWS) * (row + 1)) - y };
     const action = b.url
       ? { type: 'uri', label: b.label, uri: b.url }
       : { type: 'postback', label: b.label, data: `menu=${b.menu}`, displayText: b.label };
-    return { bounds: { x, y, width, height }, action };
+    return { bounds: b.bounds || auto, action };
   });
 }
 
 (async () => {
-  if (!imgPath) throw new Error('找不到 assets/richmenu.png，請先執行 npm run richmenu:image 或放入自己的圖 (2500x1686)');
+  if (!imgPath) throw new Error('找不到 assets/richmenu.jpg，請先執行 npm run richmenu:image 或放入自己的圖 (2500x1686)');
   if (fs.statSync(imgPath).size > 1024 * 1024) throw new Error('圖文選單圖片必須小於 1MB');
 
   if (!process.argv.includes('--keep')) {

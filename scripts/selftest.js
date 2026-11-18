@@ -26,6 +26,19 @@ for (const b of rich.buttons) {
   if (b.menu) assert(config.menus.some((m) => m.id === b.menu), `圖文選單「${b.label}」找不到 menu: ${b.menu}`);
 }
 
+// 詢價 → 交給真人（純文字，不出卡片）
+for (const t of ['我想詢問紙箱報價', '詹哥你好，我想詢問報價：']) {
+  const r = messagesFor(text(t));
+  assert.strictEqual(r.length, 1); assert.strictEqual(r[0].type, 'text', `「${t}」應該交給真人`);
+}
+
+// 卡片上的 message 按鈕不能造成無限循環（按了又回同一組卡片）
+for (const menu of config.menus) for (const card of menu.cards) for (const b of card.buttons || []) {
+  if (b.type !== 'message') continue;
+  const [r] = messagesFor(text(b.value));
+  assert(!(r.type === 'flex' && r.altText === menu.altText), `「${b.label}」按了又回到同一組卡片`);
+}
+
 // 聽不懂 → 預設回覆 + 快速按鈕
 const [fb] = messagesFor(text('asdfgh'));
 assert.strictEqual(fb.type, 'text');

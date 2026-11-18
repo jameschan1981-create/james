@@ -1,161 +1,201 @@
 {
-  "_說明": "這個檔案控制所有自動回覆。每個 menu 是一組『多圖卡片』(左右滑動的輪播)。客人點圖文選單按鈕、或打出 keywords 裡的任一字，就會回覆該組卡片。圖片必須是 https 網址，建議 800x520 (比例 20:13)。每組最多 12 張卡片、每張最多 3 個按鈕。",
+  "_說明": "所有自動回覆。每個 menu 是一組『多圖卡片』(左右滑動)。客人點圖文選單、或打出 keywords 任一字就會回覆。圖片必須是 https 網址，建議 800x520 (20:13)。每組最多 12 張卡片、每張最多 3 個按鈕。⚠️ 目前圖片是示意圖、價格未填，請換成 KM 的實際商品照片與資訊。",
 
   "welcome": {
-    "text": "歡迎加入！👋\n點下方選單，或直接輸入「商品」「優惠」「價格」「地址」「客服」，我會馬上回覆您 😊",
-    "showMenu": "products"
+    "text": "嗨～歡迎加入 KM 包材職人！📦\n我是包材詹哥 😄\n\n先別急著買，先想想：裡面要裝什麼？\n先看商品，再挑包材！\n\n點下方選單，或直接輸入「紙箱」「氣泡布」「尺寸」「印刷」，馬上回覆您！",
+    "showMenu": "boxes"
   },
 
   "fallback": {
-    "text": "不好意思，我還看不懂這個問題 🙏\n您可以點下方選單，或輸入：商品／優惠／價格／地址／問題／客服",
-    "quickReplies": ["商品", "優惠", "價格", "地址", "客服"]
+    "text": "收到！詹哥看到會盡快回您 🙏\n\n想先自己看看，可以點下方選單，或輸入：\n紙箱／氣泡布／包裝袋／膠帶／尺寸／印刷",
+    "quickReplies": ["紙箱", "氣泡布", "包裝袋", "膠帶", "尺寸怎麼挑", "印刷怎麼問", "問詹哥"]
+  },
+
+  "handoff": {
+    "_說明": "客人訊息含這些字 → 只回一句文字、不出卡片，讓詹哥接手真人回覆（優先於所有 menus）",
+    "keywords": ["報價", "詹哥你好", "訂購", "下單"],
+    "text": "收到您的詢問！🙌\n詹哥會盡快親自回覆您～\n\n為了更快幫您估價，可以順便告訴我：\n・商品是什麼（可以傳照片）\n・需要的尺寸\n・大約數量"
   },
 
   "menus": [
     {
-      "id": "products",
-      "keywords": ["商品", "產品", "熱門", "推薦", "買", "product"],
-      "altText": "熱門商品推薦",
+      "id": "boxes",
+      "keywords": ["紙箱", "箱子", "外箱", "瓦楞", "box"],
+      "altText": "KM 紙箱系列",
       "cards": [
         {
-          "image": "https://picsum.photos/seed/prod1/800/520",
-          "title": "招牌商品 A",
-          "description": "本店人氣第一名，回購率超高！",
-          "price": "NT$ 390",
+          "image": "https://picsum.photos/seed/km-box1/800/520",
+          "title": "標準瓦楞紙箱",
+          "description": "常用網拍出貨尺寸，小量也能訂。",
           "buttons": [
-            { "label": "立即購買", "type": "uri", "value": "https://example.com/product-a" },
-            { "label": "看更多", "type": "message", "value": "價格" }
+            { "label": "我要報價", "type": "message", "value": "我想詢問紙箱報價" },
+            { "label": "尺寸怎麼挑", "type": "menu", "value": "size" }
           ]
         },
         {
-          "image": "https://picsum.photos/seed/prod2/800/520",
-          "title": "人氣商品 B",
-          "description": "限量供應，賣完就沒了。",
-          "price": "NT$ 520",
+          "image": "https://picsum.photos/seed/km-box2/800/520",
+          "title": "飛機盒（披薩盒）",
+          "description": "免膠帶好組裝，開箱質感佳，適合禮盒、服飾。",
           "buttons": [
-            { "label": "立即購買", "type": "uri", "value": "https://example.com/product-b" }
+            { "label": "我要報價", "type": "message", "value": "我想詢問飛機盒報價" },
+            { "label": "可以印 LOGO 嗎", "type": "menu", "value": "print" }
           ]
         },
         {
-          "image": "https://picsum.photos/seed/prod3/800/520",
-          "title": "新品 C",
-          "description": "本月新上市，搶先體驗。",
-          "price": "NT$ 680",
+          "image": "https://picsum.photos/seed/km-box3/800/520",
+          "title": "客製尺寸紙箱",
+          "description": "商品尺寸特殊？告訴詹哥長×寬×高，幫你量身訂做。",
           "buttons": [
-            { "label": "立即購買", "type": "uri", "value": "https://example.com/product-c" }
+            { "label": "問詹哥", "type": "menu", "value": "contact" }
           ]
         }
       ]
     },
     {
-      "id": "promo",
-      "keywords": ["優惠", "活動", "折扣", "特價", "promo"],
-      "altText": "最新優惠活動",
+      "id": "bubble",
+      "keywords": ["氣泡", "泡泡", "緩衝", "防撞", "易碎", "破掉", "珍珠棉"],
+      "altText": "KM 緩衝材系列",
       "cards": [
         {
-          "image": "https://picsum.photos/seed/promo1/800/520",
-          "title": "加入好友送 100 元",
-          "description": "首次消費滿 500 元，出示此訊息即可折抵。",
+          "image": "https://picsum.photos/seed/km-bubble1/800/520",
+          "title": "氣泡布（捲裝）",
+          "description": "易碎品、杯子、玻璃瓶必備，可依需求裁切。",
           "buttons": [
-            { "label": "馬上使用", "type": "uri", "value": "https://example.com/coupon" }
+            { "label": "我要報價", "type": "message", "value": "我想詢問氣泡布報價" }
           ]
         },
         {
-          "image": "https://picsum.photos/seed/promo2/800/520",
-          "title": "買二送一",
-          "description": "指定商品任選 3 件，最低價免費。",
+          "image": "https://picsum.photos/seed/km-bubble2/800/520",
+          "title": "氣泡袋",
+          "description": "直接裝入免包捲，出貨更快。多種尺寸可選。",
           "buttons": [
-            { "label": "看指定商品", "type": "message", "value": "商品" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "price",
-      "keywords": ["價格", "價錢", "價目", "多少錢", "費用", "price"],
-      "altText": "價目表",
-      "cards": [
-        {
-          "image": "https://picsum.photos/seed/price1/800/520",
-          "title": "基本方案",
-          "description": "適合第一次體驗的客人。",
-          "price": "NT$ 299 起",
-          "buttons": [{ "label": "我要預約", "type": "message", "value": "客服" }]
-        },
-        {
-          "image": "https://picsum.photos/seed/price2/800/520",
-          "title": "進階方案",
-          "description": "最多人選擇，CP 值最高。",
-          "price": "NT$ 599 起",
-          "buttons": [{ "label": "我要預約", "type": "message", "value": "客服" }]
-        },
-        {
-          "image": "https://picsum.photos/seed/price3/800/520",
-          "title": "尊榮方案",
-          "description": "全套服務，專人一對一。",
-          "price": "NT$ 999 起",
-          "buttons": [{ "label": "我要預約", "type": "message", "value": "客服" }]
-        }
-      ]
-    },
-    {
-      "id": "store",
-      "keywords": ["地址", "門市", "位置", "怎麼去", "營業時間", "幾點", "store"],
-      "altText": "門市資訊",
-      "cards": [
-        {
-          "image": "https://picsum.photos/seed/store1/800/520",
-          "title": "台北旗艦店",
-          "description": "📍 台北市信義區範例路 1 號\n🕙 每日 10:00 – 21:00",
-          "buttons": [
-            { "label": "Google 地圖導航", "type": "uri", "value": "https://maps.google.com/?q=台北101" },
-            { "label": "打電話", "type": "uri", "value": "tel:0212345678" }
+            { "label": "我要報價", "type": "message", "value": "我想詢問氣泡袋報價" }
           ]
         },
         {
-          "image": "https://picsum.photos/seed/store2/800/520",
-          "title": "台中門市",
-          "description": "📍 台中市西屯區範例路 2 號\n🕙 每日 11:00 – 21:00",
+          "image": "https://picsum.photos/seed/km-bubble3/800/520",
+          "title": "不知道要用哪種？",
+          "description": "告訴詹哥你的商品是什麼，幫你挑最省又最安全的。",
           "buttons": [
-            { "label": "Google 地圖導航", "type": "uri", "value": "https://maps.google.com/?q=台中歌劇院" }
+            { "label": "問詹哥", "type": "menu", "value": "contact" }
           ]
         }
       ]
     },
     {
-      "id": "faq",
-      "keywords": ["問題", "常見", "faq", "退貨", "運費", "付款"],
-      "altText": "常見問題",
+      "id": "bags",
+      "keywords": ["包裝袋", "快遞袋", "破壞袋", "夾鏈袋", "自黏袋", "袋子", "OPP"],
+      "altText": "KM 包裝袋系列",
       "cards": [
         {
-          "image": "https://picsum.photos/seed/faq1/800/520",
-          "title": "運費怎麼算？",
-          "description": "單筆滿 NT$1,000 免運，未滿酌收 NT$80。"
+          "image": "https://picsum.photos/seed/km-bag1/800/520",
+          "title": "快遞袋（破壞袋）",
+          "description": "撕開即破壞、防偷拆。服飾、軟性商品最適合。",
+          "buttons": [
+            { "label": "我要報價", "type": "message", "value": "我想詢問快遞袋報價" },
+            { "label": "可以印 LOGO 嗎", "type": "menu", "value": "print" }
+          ]
         },
         {
-          "image": "https://picsum.photos/seed/faq2/800/520",
-          "title": "可以退換貨嗎？",
-          "description": "收到商品 7 天內，未拆封可無條件退換。"
+          "image": "https://picsum.photos/seed/km-bag2/800/520",
+          "title": "夾鏈袋",
+          "description": "透明好分裝，零件、飾品、食品分包都好用。",
+          "buttons": [
+            { "label": "我要報價", "type": "message", "value": "我想詢問夾鏈袋報價" }
+          ]
         },
         {
-          "image": "https://picsum.photos/seed/faq3/800/520",
-          "title": "有哪些付款方式？",
-          "description": "信用卡、LINE Pay、ATM 轉帳、貨到付款。"
+          "image": "https://picsum.photos/seed/km-bag3/800/520",
+          "title": "OPP 自黏袋",
+          "description": "高透明、自黏封口，卡片、小物包裝首選。",
+          "buttons": [
+            { "label": "我要報價", "type": "message", "value": "我想詢問OPP自黏袋報價" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tape",
+      "keywords": ["膠帶", "封箱", "膠台", "tape"],
+      "altText": "KM 膠帶系列",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/km-tape1/800/520",
+          "title": "透明封箱膠帶",
+          "description": "黏性強、不易翹邊，日常出貨必備。",
+          "buttons": [
+            { "label": "我要報價", "type": "message", "value": "我想詢問透明膠帶報價" }
+          ]
+        },
+        {
+          "image": "https://picsum.photos/seed/km-tape2/800/520",
+          "title": "印刷膠帶",
+          "description": "印上品牌 LOGO，封箱就是最好的廣告。",
+          "buttons": [
+            { "label": "印刷怎麼問", "type": "menu", "value": "print" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "size",
+      "keywords": ["尺寸", "大小", "多大", "怎麼挑", "怎麼選", "長寬高"],
+      "altText": "尺寸怎麼挑？3 步選對箱",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/km-size1/800/520",
+          "title": "STEP 1｜量商品",
+          "description": "量出商品的 長 × 寬 × 高（公分），有外盒就量外盒。"
+        },
+        {
+          "image": "https://picsum.photos/seed/km-size2/800/520",
+          "title": "STEP 2｜留緩衝空間",
+          "description": "易碎品四周各留 2～3 公分塞氣泡布；不易碎的貼合就好，箱子越小運費越省。"
+        },
+        {
+          "image": "https://picsum.photos/seed/km-size3/800/520",
+          "title": "STEP 3｜傳給詹哥",
+          "description": "把尺寸、商品照片、每月大約用量傳給詹哥，幫你推薦最剛好的箱子！",
+          "buttons": [
+            { "label": "問詹哥", "type": "menu", "value": "contact" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "print",
+      "keywords": ["印刷", "印LOGO", "LOGO", "logo", "客製", "訂製", "印字"],
+      "altText": "印刷怎麼問？",
+      "cards": [
+        {
+          "image": "https://picsum.photos/seed/km-print1/800/520",
+          "title": "問印刷前，先準備這 4 樣",
+          "description": "① 要印哪種包材\n② 尺寸\n③ 數量\n④ LOGO 檔案（AI / PDF 最好）",
+          "buttons": [
+            { "label": "我準備好了", "type": "menu", "value": "contact" }
+          ]
+        },
+        {
+          "image": "https://picsum.photos/seed/km-print2/800/520",
+          "title": "可以印的包材",
+          "description": "紙箱、飛機盒、快遞袋、膠帶都能印，數量不同價格也不同，問詹哥最快。",
+          "buttons": [
+            { "label": "問詹哥", "type": "menu", "value": "contact" }
+          ]
         }
       ]
     },
     {
       "id": "contact",
-      "keywords": ["客服", "真人", "聯絡", "電話", "預約", "contact"],
-      "altText": "聯絡客服",
+      "keywords": ["問詹哥", "真人", "客服", "聯絡", "電話", "多少錢", "價格", "價錢"],
+      "altText": "直接問詹哥",
       "cards": [
         {
-          "image": "https://picsum.photos/seed/contact1/800/520",
-          "title": "聯絡真人客服",
-          "description": "客服時間：週一至週五 09:00 – 18:00\n直接在這裡留言，我們會盡快回覆您！",
+          "image": "https://picsum.photos/seed/km-contact1/800/520",
+          "title": "直接問詹哥！",
+          "description": "請在這裡留言告訴我：\n・要裝什麼商品\n・需要的包材＆數量\n\n詹哥看到會親自回覆您 😄",
           "buttons": [
-            { "label": "撥打電話", "type": "uri", "value": "tel:0212345678" },
-            { "label": "線上預約", "type": "uri", "value": "https://example.com/booking" }
+            { "label": "我要報價", "type": "message", "value": "詹哥你好，我想詢問報價：" }
           ]
         }
       ]

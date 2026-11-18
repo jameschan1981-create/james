@@ -1,8 +1,8 @@
-# LINE 官方帳號：圖文選單 + 多圖卡片自動回覆
+# KM 包材職人｜LINE 圖文選單 + 多圖卡片自動回覆
 
 客人點下方**圖文選單**，或打字問問題（例如「地址在哪」「多少錢」），機器人會自動回覆一組可以左右滑動的**多圖卡片**。
 
-![圖文選單](assets/richmenu.png)
+![圖文選單](assets/richmenu.jpg)
 
 | 客人做的事 | 機器人回覆 |
 |---|---|
@@ -48,12 +48,12 @@
 - 每組最多 **12 張**卡片、每張最多 **3 個**按鈕、按鈕文字最多 20 字。
 - 改完存檔即可生效，不用重開伺服器。
 
-### `config/richmenu.json` — 圖文選單 6 格
+### `config/richmenu.json` — 圖文選單點擊區域（左大格 + 右 6 格）
 順序：左上 → 右上，左下 → 右下。`menu` 填 cards.json 裡的 id；想開網頁就改成 `"url": "https://..."`。
 
 改完要：
 ```bash
-npm run richmenu:image   # 重新產生 assets/richmenu.png（或自己用 Canva 做 2500×1686、<1MB 的圖放進去）
+npm run richmenu:image   # 依 assets/richmenu-design.html 重新產生 assets/richmenu.jpg（或用 Canva 做 2500×1686、<1MB 的圖放進去）
 npm run richmenu         # 上傳到 LINE
 ```
 
@@ -112,8 +112,9 @@ npm run dev              # 本機啟動（DRY_RUN 模式，只印出不真的送
 ## 檔案說明
 ```
 config/cards.json          所有卡片內容與關鍵字 ← 主要改這個
-config/richmenu.json       圖文選單 6 格的文字與對應
-assets/richmenu.png        圖文選單圖片 (2500x1686)
+config/richmenu.json       圖文選單點擊區域與對應
+assets/richmenu.jpg        圖文選單圖片 (2500x1686)
+assets/richmenu-design.html 圖文選單設計稿（改文字、顏色在這裡）
 src/server.js              Webhook 伺服器
 src/flex.js                把設定轉成 LINE 多圖卡片 (Flex carousel)
 src/line.js                LINE API 呼叫、簽章驗證

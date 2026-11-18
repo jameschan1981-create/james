@@ -1,13 +1,14 @@
 {
-  "_說明": "圖文選單 (畫面下方的大按鈕)。固定 3x2 共 6 格，順序：左上→右上，左下→右下。menu 填 cards.json 裡的 id；或改用 url 開網頁。改完執行 npm run richmenu:image 重新產生圖片，再 npm run richmenu 上傳。",
-  "name": "main-menu",
-  "chatBarText": "點我看選單",
+  "_說明": "圖文選單點擊區域，對應 assets/richmenu-design.html 的版面 (2500x1686)。左邊大格 + 右邊 3x2 六格。menu 填 cards.json 的 id；想開網頁改成 \"url\": \"https://...\"。改設計稿後執行 npm run richmenu:image，再 npm run richmenu 上傳。",
+  "name": "km-main-menu",
+  "chatBarText": "包材問題點這裡",
   "buttons": [
-    { "label": "熱門商品", "icon": "🛍️", "menu": "products" },
-    { "label": "最新優惠", "icon": "🎁", "menu": "promo" },
-    { "label": "價目表",   "icon": "💰", "menu": "price" },
-    { "label": "門市資訊", "icon": "📍", "menu": "store" },
-    { "label": "常見問題", "icon": "❓", "menu": "faq" },
-    { "label": "聯絡客服", "icon": "💬", "menu": "contact" }
+    { "label": "問詹哥",     "menu": "contact", "bounds": { "x": 0,    "y": 0,   "width": 1000, "height": 1686 } },
+    { "label": "紙箱",       "menu": "boxes",   "bounds": { "x": 1000, "y": 0,   "width": 500,  "height": 843 } },
+    { "label": "氣泡布",     "menu": "bubble",  "bounds": { "x": 1500, "y": 0,   "width": 500,  "height": 843 } },
+    { "label": "包裝袋",     "menu": "bags",    "bounds": { "x": 2000, "y": 0,   "width": 500,  "height": 843 } },
+    { "label": "膠帶",       "menu": "tape",    "bounds": { "x": 1000, "y": 843, "width": 500,  "height": 843 } },
+    { "label": "尺寸怎麼挑", "menu": "size",    "bounds": { "x": 1500, "y": 843, "width": 500,  "height": 843 } },
+    { "label": "印刷怎麼問", "menu": "print",   "bounds": { "x": 2000, "y": 843, "width": 500,  "height": 843 } }
   ]
 }
